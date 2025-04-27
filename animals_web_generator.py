@@ -1,29 +1,29 @@
 import json
 
 def load_data(file_path):
-    """Lädt eine JSON-Datei."""
+    """loads a JSON-file."""
     with open(file_path, "r") as handle:
         return json.load(handle)
 
 data = load_data('animals_data.json')
 
 def get_animals_data():
+    """returns a string with the animals data"""
     output = ''
     for animal in data:
-        output += f"\nName: {animal.get('name', 'Unbekannt')}\n"
-
+        output += '<li class="cards__item">'
+        output += f"\nName: {animal.get('name', 'Unbekannt')}<br/>\n"
         characteristics = animal.get('characteristics', {})
         diet = characteristics.get('diet')
         if diet:
-            output += f"Diet: {diet}\n"
-
+            output += f"Diet: {diet}<br/>\n"
         locations = animal.get('locations', [])
         if locations:
-            output += f"Location: {locations[0]}\n"
-
+            output += f"Location: {locations[0]}<br/>\n"
         type_ = characteristics.get('type')
         if type_:
-            output += f"Type: {type_}\n"
+            output += f"Type: {type_}<br/>\n"
+        output += '</li>'
 
     return output
 
