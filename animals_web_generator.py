@@ -1,37 +1,38 @@
 import json
-import pprint
 
 def load_data(file_path):
-  with open(file_path, "r") as handle:
-    return json.load(handle)
+    """Lädt eine JSON-Datei."""
+    with open(file_path, "r") as handle:
+        return json.load(handle)
 
 data = load_data('animals_data.json')
 
+def get_animals_data():
+    output = ''
+    for animal in data:
+        output += f"\nName: {animal.get('name', 'Unbekannt')}\n"
 
-def print_animals_data(data):
-  output = ''
-  for animal_data in data:
-    output += '\n'
+        characteristics = animal.get('characteristics', {})
+        diet = characteristics.get('diet')
+        if diet:
+            output += f"Diet: {diet}\n"
 
-    # Name (nur wenn vorhanden)
-    if 'name' in animal_data:
-      output += f"Name: {animal_data['name']}\n"
+        locations = animal.get('locations', [])
+        if locations:
+            output += f"Location: {locations[0]}\n"
 
-    # Characteristics (nur wenn vorhanden)
-    characteristics = animal_data.get('characteristics')
-    if characteristics:
-      if 'diet' in characteristics:
-        output += f"Diet: {characteristics['diet']}\n"
-      if 'type' in characteristics:
-        output += f"Type: {characteristics['type']}\n"
+        type_ = characteristics.get('type')
+        if type_:
+            output += f"Type: {type_}\n"
 
-    # Locations (nur wenn Liste vorhanden & nicht leer)
-    locations = animal_data.get('locations')
-    if locations and isinstance(locations, list) and len(locations) > 0:
-      output += f"Location: {locations[0]}\n"
+    return output
 
-  return output
+animals_data = get_animals_data().strip()
 
+with open('animals_template.html', 'r') as file:
+    template = file.read()
+    new_html = template.replace('__REPLACE_ANIMALS_INFO__', animals_data)
 
-#template = load_data('animals_template.html')
-print_animals_data()
+with open('animals.html', 'w') as file:
+    file.write(new_html)
+
