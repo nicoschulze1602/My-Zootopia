@@ -8,22 +8,28 @@ def load_data(file_path):
 data = load_data('animals_data.json')
 
 def get_animals_data():
-    """returns a string with the animals data"""
+    """returns a string with the animal"""
     output = ''
     for animal in data:
-        output += '<li class="cards__item">'
-        output += f"\nName: {animal.get('name', 'Unbekannt')}<br/>\n"
+        output += '<li class="cards__item">\n'
+        output += f'  <div class="card__title">{animal.get("name", "Unbekannt")}</div>\n'
+        output += '  <p class="card__text">\n'
+
         characteristics = animal.get('characteristics', {})
         diet = characteristics.get('diet')
         if diet:
-            output += f"Diet: {diet}<br/>\n"
+            output += f'    <strong>Diet:</strong> {diet}<br/>\n'
+
         locations = animal.get('locations', [])
         if locations:
-            output += f"Location: {locations[0]}<br/>\n"
+            output += f'    <strong>Location:</strong> {locations[0]}<br/>\n'
+
         type_ = characteristics.get('type')
         if type_:
-            output += f"Type: {type_}<br/>\n"
-        output += '</li>'
+            output += f'    <strong>Type:</strong> {type_}<br/>\n'
+
+        output += '  </p>\n'
+        output += '</li>\n'
 
     return output
 
