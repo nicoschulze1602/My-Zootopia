@@ -19,22 +19,28 @@ def serialize_animal(animal_obj):
     output += '  <div class="card">\n'
 
     name = animal_obj.get("name", "Unbekannt")
-    output += f'    <div class="card__header"><h2 class="card__title">{name}</h2></div>\n'
-    output += '    <div class="card__body">\n'
+    output += f'    <div class="card__title">{name}</div>\n'
+    output += '    <div class="card__text">\n'
+    output += '      <ul class="card__list">\n'
 
     characteristics = animal_obj.get('characteristics', {})
-    diet = characteristics.get('diet')
-    if diet:
-        output += f'      <p><strong>Diet:</strong> {diet}</p>\n'
-
     locations = animal_obj.get('locations', [])
-    if locations:
-        output += f'      <p><strong>Location:</strong> {locations[0]}</p>\n'
 
-    type_ = characteristics.get('type')
-    if type_:
-        output += f'      <p><strong>Type:</strong> {type_}</p>\n'
+    fields = {
+        "Diet": characteristics.get("diet"),
+        "Location": locations[0] if locations else None,
+        "Type": characteristics.get("type"),
+        "Lifespan": characteristics.get("lifespan"),
+        "Group": characteristics.get("group"),
+        "Color": characteristics.get("color"),
+        "Skin Type": characteristics.get("skin_type"),
+    }
 
+    for label, value in fields.items():
+        if value:
+            output += f'        <li><strong>{label}:</strong> {value}</li>\n'
+
+    output += '      </ul>\n'
     output += '    </div>\n'
     output += '  </div>\n'
     output += '</li>\n'

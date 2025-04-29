@@ -15,11 +15,8 @@
 
         h1 {
             text-align: center;
-            font-size: 40pt;
-            font-weight: normal;
-            font-family: "Lucida Console", "Courier New", monospace;
-            text-decoration-line: overline underline;
-            text-shadow: 1px 1px #293133;
+            font-size: 50pt;
+            font-weight: bold;
         }
 
         body {
@@ -36,43 +33,53 @@
           margin: auto;
         }
 
+        .card {
+          background-color: white;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          padding: 1rem;
+        }
+
         .cards {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-          transition: transform 0.2s;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
         }
 
         .cards__item {
-          background-color: white;
-          border: 5px solid,
-          border-radius: 15px;
-          box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-          overflow: hidden;
-          padding: 1rem;
-          margin: 50px;
+          flex: 0 0 300px;
+          box-sizing: border-box;
+          list-style: none;
+          margin: 1rem;
+          width: 280px;
         }
 
         .card__title {
-          color: @gray-dark;
+          color: #2c3e50;
+          text-align: center;
+          margin-bottom: 0.8rem;
           font-size: 1.25rem;
-          font-weight: 300;
+          font-weight: bold;
           letter-spacing: 2px;
           text-transform: uppercase;
-          margin-bottom: 0.5rem;
-        }
-
-        .card:hover {
-          transform: translateY(-3px);
-          font-size: 125%;
         }
 
         .card__text {
           flex: 1 1 auto;
+          color: #34495e;
           font-size: 0.95rem;
           line-height: 2;
           margin-bottom: 1.25rem;
+        }
+
+        .card__list {
+          padding-left: 1.2rem;
+        }
+
+        .card__list li {
+          margin-bottom: 0.3rem;
+          line-height: 1.4;
         }
         </style>
     </head>
@@ -81,182 +88,282 @@
         <ul class="cards">
             <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">American Foxhound</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> North-America</p>
-      <p><strong>Type:</strong> Hound</p>
+    <div class="card__title">American Foxhound</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> North-America</li>
+        <li><strong>Type:</strong> Hound</li>
+        <li><strong>Lifespan:</strong> 10 to 12 years</li>
+        <li><strong>Group:</strong> Dog</li>
+        <li><strong>Color:</strong> BlackWhiteTan</li>
+        <li><strong>Skin Type:</strong> Hair</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Arctic Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Carnivore</p>
-      <p><strong>Location:</strong> Eurasia</p>
-      <p><strong>Type:</strong> Mammal</p>
+    <div class="card__title">Arctic Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Carnivore</li>
+        <li><strong>Location:</strong> Eurasia</li>
+        <li><strong>Type:</strong> Mammal</li>
+        <li><strong>Lifespan:</strong> 7 - 10 years</li>
+        <li><strong>Color:</strong> GreyBlackWhite</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Cross Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Carnivore</p>
-      <p><strong>Location:</strong> North-America</p>
-      <p><strong>Type:</strong> mammal</p>
+    <div class="card__title">Cross Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Carnivore</li>
+        <li><strong>Location:</strong> North-America</li>
+        <li><strong>Type:</strong> mammal</li>
+        <li><strong>Lifespan:</strong> 10 to 15 years in captivity, seven years in the wild</li>
+        <li><strong>Color:</strong> RedBlackSilver</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Darwin’s fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> South-America</p>
-      <p><strong>Type:</strong> Mammal</p>
+    <div class="card__title">Darwin’s fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> South-America</li>
+        <li><strong>Type:</strong> Mammal</li>
+        <li><strong>Lifespan:</strong> Seven years</li>
+        <li><strong>Color:</strong> GreyRedBlack</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">English Foxhound</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Europe</p>
+    <div class="card__title">English Foxhound</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Europe</li>
+        <li><strong>Lifespan:</strong> 10 to 13 years</li>
+        <li><strong>Color:</strong> BlackWhiteTanMulti-colored</li>
+        <li><strong>Skin Type:</strong> Hair</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Fennec Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Africa</p>
+    <div class="card__title">Fennec Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Africa</li>
+        <li><strong>Lifespan:</strong> 10 - 14 years</li>
+        <li><strong>Group:</strong> Mammal</li>
+        <li><strong>Color:</strong> WhiteCreamSandy</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Carnivore</p>
-      <p><strong>Location:</strong> Africa</p>
-      <p><strong>Type:</strong> Mammal</p>
+    <div class="card__title">Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Carnivore</li>
+        <li><strong>Location:</strong> Africa</li>
+        <li><strong>Type:</strong> Mammal</li>
+        <li><strong>Lifespan:</strong> 3 - 11 years</li>
+        <li><strong>Color:</strong> BrownRedBlackTan</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Fox Snakes</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Carnivore</p>
-      <p><strong>Location:</strong> North-America</p>
+    <div class="card__title">Fox Snakes</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Carnivore</li>
+        <li><strong>Location:</strong> North-America</li>
+        <li><strong>Lifespan:</strong> approximately 20 years</li>
+        <li><strong>Color:</strong> BrownGreyBeigeChestnut</li>
+        <li><strong>Skin Type:</strong> Scales</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Fox Squirrel</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Central-America</p>
-      <p><strong>Type:</strong> rodent</p>
+    <div class="card__title">Fox Squirrel</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Central-America</li>
+        <li><strong>Type:</strong> rodent</li>
+        <li><strong>Lifespan:</strong> 6-12.6 years</li>
+        <li><strong>Group:</strong> social</li>
+        <li><strong>Color:</strong> BrownGrey-Brown</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Fox Terrier</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Europe</p>
+    <div class="card__title">Fox Terrier</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Europe</li>
+        <li><strong>Lifespan:</strong> 14 years</li>
+        <li><strong>Group:</strong> Terrier</li>
+        <li><strong>Skin Type:</strong> Hair</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Golden-Crowned Flying Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Herbivore</p>
-      <p><strong>Location:</strong> Asia</p>
+    <div class="card__title">Golden-Crowned Flying Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Herbivore</li>
+        <li><strong>Location:</strong> Asia</li>
+        <li><strong>Lifespan:</strong> unknown</li>
+        <li><strong>Group:</strong> They live in large gatherings in the woods</li>
+        <li><strong>Color:</strong> BlackGold</li>
+        <li><strong>Skin Type:</strong> Hair</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Gray Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Central-America</p>
-      <p><strong>Type:</strong> Mammal</p>
+    <div class="card__title">Gray Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Central-America</li>
+        <li><strong>Type:</strong> Mammal</li>
+        <li><strong>Lifespan:</strong> 6-12 years</li>
+        <li><strong>Color:</strong> GreyRedBlackWhite</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Kit Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Central-America</p>
-      <p><strong>Type:</strong> mammal</p>
+    <div class="card__title">Kit Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Central-America</li>
+        <li><strong>Type:</strong> mammal</li>
+        <li><strong>Lifespan:</strong> seven years in the wild. 12 years in captivity</li>
+        <li><strong>Group:</strong> solitary</li>
+        <li><strong>Color:</strong> GreyYellowBlackWhite</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Marble Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> North-America</p>
-      <p><strong>Type:</strong> Mammal</p>
+    <div class="card__title">Marble Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> North-America</li>
+        <li><strong>Type:</strong> Mammal</li>
+        <li><strong>Lifespan:</strong> Up to 15 years</li>
+        <li><strong>Color:</strong> BrownBlackWhite</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Red Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Africa</p>
+    <div class="card__title">Red Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Africa</li>
+        <li><strong>Lifespan:</strong> 2-4 years in the wild, 10-12 in captivity</li>
+        <li><strong>Color:</strong> BrownGreyRedBlackSilver</li>
+        <li><strong>Skin Type:</strong> Hair</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Smooth Fox Terrier</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Europe</p>
+    <div class="card__title">Smooth Fox Terrier</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Europe</li>
+        <li><strong>Lifespan:</strong> 12 – 15 years</li>
+        <li><strong>Color:</strong> BrownBlackWhiteTan</li>
+        <li><strong>Skin Type:</strong> Hair</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Tibetan Fox</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Carnivore</p>
-      <p><strong>Location:</strong> Asia</p>
-      <p><strong>Type:</strong> Mammal</p>
+    <div class="card__title">Tibetan Fox</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Carnivore</li>
+        <li><strong>Location:</strong> Asia</li>
+        <li><strong>Type:</strong> Mammal</li>
+        <li><strong>Lifespan:</strong> 8-10 years</li>
+        <li><strong>Color:</strong> GreyTan</li>
+        <li><strong>Skin Type:</strong> Fur</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Toy Fox Terrier</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> North-America</p>
+    <div class="card__title">Toy Fox Terrier</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> North-America</li>
+        <li><strong>Lifespan:</strong> 11-14 years</li>
+        <li><strong>Color:</strong> BlackWhiteTanChocolate</li>
+        <li><strong>Skin Type:</strong> Hair</li>
+      </ul>
     </div>
   </div>
 </li>
 <li class="cards__item">
   <div class="card">
-    <div class="card__header"><h2 class="card__title">Wire Fox Terrier</h2></div>
-    <div class="card__body">
-      <p><strong>Diet:</strong> Omnivore</p>
-      <p><strong>Location:</strong> Europe</p>
+    <div class="card__title">Wire Fox Terrier</div>
+    <div class="card__text">
+      <ul class="card__list">
+        <li><strong>Diet:</strong> Omnivore</li>
+        <li><strong>Location:</strong> Europe</li>
+        <li><strong>Lifespan:</strong> 13 – 14 years</li>
+        <li><strong>Color:</strong> BlackWhiteTan</li>
+        <li><strong>Skin Type:</strong> Hair</li>
+      </ul>
     </div>
   </div>
 </li>
