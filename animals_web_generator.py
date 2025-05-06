@@ -13,40 +13,6 @@ def get_animals_data():
     for animal_obj in data:
         output += serialize_animal(animal_obj)
     return output
-def serialize_animal(animal_obj):
-    name = animal_obj.get("name", "Unbekannt")
-    locations = animal_obj.get("locations", [])
-    characteristics = animal_obj.get("characteristics", {})
-
-    fields = {
-        "🎨 Color": characteristics.get("color"),
-        "✨ Most distinctive": characteristics.get("most_distinctive_feature"),
-        "📍 Location": locations[0] if locations else None,
-        "🛖 Habitat": characteristics.get("habitat"),
-        "🏹 Prey": characteristics.get("prey"),
-        "🥷 Predators": characteristics.get("predators"),
-        "⚖️ Weight": characteristics.get("weight"),
-        "📏 Length": characteristics.get("length"),
-        "💨 Pace": characteristics.get("top_speed"),
-        "⏳ Lifespan": characteristics.get("lifespan"),
-    }
-
-    output = ''
-    output += '<li class="cards__item">\n'
-    output += f'  <div class="card__title">{name}</div>\n'
-    output += '  <div class="card__text">\n'
-    output += '    <ul class="info-list">\n'
-
-    for label, value in fields.items():
-        if value:
-            output += f'      <li><strong>{label}:</strong> {value}</li>\n'
-
-    output += '    </ul>\n'
-    output += '  </div>\n'
-    output += '</li>\n'
-
-    return output
-
 
 def serialize_animal(animal_obj):
     output = '<li class="cards__item">\n'
@@ -61,17 +27,13 @@ def serialize_animal(animal_obj):
     locations = animal_obj.get('locations', [])
 
     fields = {
-        "Color": characteristics.get("color"),
-        "Signature": characteristics.get("most_distinctive_feature"),
+        "Diet": characteristics.get("diet"),
         "Location": locations[0] if locations else None,
-        "Habitat": characteristics.get("habitat"),
-        "Prey": characteristics.get("prey"),
-        "Predators": characteristics.get("predators"),
-        "Weight": characteristics.get("weight"),
-        "Length": characteristics.get("length"),
-        "top_speed": characteristics.get("top_speed"),
+        "Type": characteristics.get("type"),
         "Lifespan": characteristics.get("lifespan"),
-
+        "Group": characteristics.get("group"),
+        "Color": characteristics.get("color"),
+        "Skin Type": characteristics.get("skin_type"),
     }
 
     for label, value in fields.items():

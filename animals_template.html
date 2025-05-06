@@ -10,49 +10,61 @@
 
 
         html {
-          background-color: #ffe9e9;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 40pt;
-            font-weight: normal;
+          background-color: #FFF;
         }
 
         body {
           font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-style: normal;
-          font-weight: 400;
+          font-size: 40px;
           letter-spacing: 0;
-          padding: 1rem;
+          padding: 2rem;
+          background-color: #FFEFD5;
           text-rendering: optimizeLegibility;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           -moz-font-feature-settings: "liga" on;
           width: 900px;
-          margin: auto;
+          margin-bottom: 2rem;
         }
 
+        h1 {
+          text-align: center;
+          text-transform: uppercase;
+          font-size: 40px;
+          color: #444444;
+          margin-bottom: 2rem;
+        }
+
+
+
         .cards {
-          list-style: none;
-          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
           padding: 0;
+          list-style: none;
         }
 
         .cards__item {
-          background-color: white;
+          background-color: #FFFAF0;
           border-radius: 0.25rem;
-          box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+          box-shadow: 0 2px 15px rgba(0,0,0,0.25);
           overflow: hidden;
-          padding: 1rem;
-          margin: 50px;
+          padding: 1.5rem;
+          width: 300px;
+          transition: transform 0.2s;
+        }
+
+        .cards__item:hover {
+          transform: scale(1.02);
         }
 
         .card__title {
           color: @gray-dark;
-          font-size: 1.25rem;
-          font-weight: 300;
-          letter-spacing: 2px;
+          font-size: 1.35rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
           text-transform: uppercase;
         }
 
