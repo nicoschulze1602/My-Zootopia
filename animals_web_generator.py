@@ -1,24 +1,17 @@
 import json
 
 def load_data(file_path):
-    """loads a JSON-file."""
+    """Loads and parses a JSON file from the given file path."""
     with open(file_path, "r") as handle:
         return json.load(handle)
 
-data = load_data('animals_data.json')
-
-def get_animals_data():
-    """returns a string with the animal"""
-    output = ''
-    for animal_obj in data:
-        output += serialize_animal(animal_obj)
-    return output
 
 def serialize_animal(animal_obj):
+    """Converts a single animal dictionary into an HTML <li> block."""
     output = '<li class="cards__item">\n'
     output += '  <div class="card">\n'
 
-    name = animal_obj.get("name", "Unbekannt")
+    name = animal_obj.get("name", "unknown")
     output += f'    <div class="card__title">{name}</div>\n'
     output += '    <div class="card__text">\n'
     output += '      <ul class="card__list">\n'
@@ -46,12 +39,43 @@ def serialize_animal(animal_obj):
     output += '</li>\n'
     return output
 
-animals_data = get_animals_data().strip()
 
-with open('animals_template.html', 'r') as file:
-    template = file.read()
-    new_html = template.replace('__REPLACE_ANIMALS_INFO__', animals_data)
+def get_animals_data(data):
+    """Returns a string containing all serialized animal entries."""
+    output = ''
+    for animal_obj in data:
+        output += serialize_animal(animal_obj)
+    return output
 
-with open('animals.html', 'w', encoding="utf-8") as file:
-    file.write(new_html)
 
+def main():
+    """Loads data, processes it, and writes HTML output."""
+    try:
+        data = load_data('animals_data.json')
+    except FileNotFoundError:
+        print("❌ Error: 'animals_data.json' not found.")
+        return
+    except json.JSONDecodeError:
+        print("❌ Fehler: Die Datei 'animals_data.json' enthält kein gültiges JSON-Fo.")
+        return
+
+    animals_data = get_animals_data(data).strip()
+
+    try:
+        with open('animals_template.html', 'r') as file:
+            template = file.read()
+            new_html = template.replace('__REPLACE_ANIMALS_INFO__', animals_data)
+    except FileNotFoundError:
+        print("❌ Error: 'animals_template.html' not found.")
+        return
+
+    try:
+        with open('animals.html', 'w', encoding="utf-8") as file:
+            file.write(new_html)
+            print('File was created successfully!')
+    except Exception as e:
+        print(f"❌ Fehler beim Schreiben der Datei: {e}")
+
+
+if __name__ == '__main__':
+    main()
