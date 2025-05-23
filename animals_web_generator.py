@@ -53,10 +53,10 @@ def main():
     try:
         data = load_data('animals_data.json')
     except FileNotFoundError:
-        print("❌ Error: 'animals_data.json' not found.")
+        print("❌ Error: 'animals_data.json' file not found.")
         return
     except json.JSONDecodeError:
-        print("❌ Fehler: Die Datei 'animals_data.json' enthält kein gültiges JSON-Fo.")
+        print("❌ Error: 'animals_data.json' contains no valid JSON.")
         return
 
     animals_data = get_animals_data(data).strip()
@@ -64,17 +64,18 @@ def main():
     try:
         with open('animals_template.html', 'r') as file:
             template = file.read()
-            new_html = template.replace('__REPLACE_ANIMALS_INFO__', animals_data)
     except FileNotFoundError:
-        print("❌ Error: 'animals_template.html' not found.")
+        print("❌ Error: 'animals_template.html' file not found.")
         return
+
+    new_html = template.replace('__REPLACE_ANIMALS_INFO__', animals_data)
 
     try:
         with open('animals.html', 'w', encoding="utf-8") as file:
             file.write(new_html)
-            print('File was created successfully!')
+        print("✅ File 'animals.html'was successfully created!")
     except Exception as e:
-        print(f"❌ Fehler beim Schreiben der Datei: {e}")
+        print(f"❌ Error creating file: {e}")
 
 
 if __name__ == '__main__':
